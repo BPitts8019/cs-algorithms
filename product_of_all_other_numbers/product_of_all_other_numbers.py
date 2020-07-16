@@ -5,12 +5,17 @@ Returns: a List of integers
 
 
 def product_of_all_other_numbers(arr):
+    cache = {}
     rtn_arr = []
     for i in range(len(arr)):
-        product = 1
-        for (index, number) in enumerate(arr):
-            if i != index:
-                product *= number
+        if arr[i] in cache:
+            product = cache[arr[i]]
+        else:
+            product = 1
+            for (index, number) in enumerate(arr):
+                if i != index:
+                    product *= number
+            cache[arr[i]] = product
 
         rtn_arr.append(product)
 
