@@ -4,25 +4,13 @@ Returns: a List of integers
 '''
 
 
-def max_of(arr):
-    if len(arr) == 1:
-        return arr[0]
-
-    max_num = arr[0]
-    for i in range(1, len(arr)):
-        if arr[i] > max_num:
-            max_num = arr[i]
-
-    return max_num
-
-
 def sliding_window_max(nums, k):
     max_nums = []
 
     num_iterations = len(nums) - k + 1
     for i in range(num_iterations):
         window = nums[i:i+k]
-        max_nums.append(max_of(window))
+        max_nums.append(max(window))
     return max_nums
 
 
